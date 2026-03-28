@@ -1,0 +1,47 @@
+#nullable enable
+
+namespace HumeAI
+{
+    public partial interface IConfigsClient
+    {
+        /// <summary>
+        /// Create an EVI config
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::HumeAI.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::HumeAI.ReturnConfig> CreateConfigAsync(
+
+            global::HumeAI.PostedConfig request,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create an EVI config
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="versionDescription"></param>
+        /// <param name="eviVersion"></param>
+        /// <param name="prompt"></param>
+        /// <param name="voice"></param>
+        /// <param name="languageModel"></param>
+        /// <param name="ellmModel"></param>
+        /// <param name="tools"></param>
+        /// <param name="builtinTools"></param>
+        /// <param name="eventMessages"></param>
+        /// <param name="timeouts"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::HumeAI.ReturnConfig> CreateConfigAsync(
+            string name,
+            string? versionDescription = default,
+            string? eviVersion = default,
+            global::HumeAI.PostedConfigPromptSpec? prompt = default,
+            global::HumeAI.PostedUtteranceVoice? voice = default,
+            global::HumeAI.PostedLanguageModel? languageModel = default,
+            global::HumeAI.PostedEllmModel? ellmModel = default,
+            global::System.Collections.Generic.IList<global::HumeAI.PostedUserDefinedToolSpec>? tools = default,
+            global::System.Collections.Generic.IList<global::HumeAI.PostedBuiltinTool>? builtinTools = default,
+            global::HumeAI.PostedEventMessageSpecs? eventMessages = default,
+            global::HumeAI.PostedTimeoutSpecs? timeouts = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

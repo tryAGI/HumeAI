@@ -1,0 +1,17 @@
+#nullable enable
+
+namespace HumeAI
+{
+    public partial interface IPromptsClient
+    {
+        /// <summary>
+        /// Delete a prompt
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::HumeAI.ApiException"></exception>
+        global::System.Threading.Tasks.Task DeletePromptAsync(
+            string id,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

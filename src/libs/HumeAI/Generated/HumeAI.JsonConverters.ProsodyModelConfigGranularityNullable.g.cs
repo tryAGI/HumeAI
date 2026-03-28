@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace HumeAI.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class ProsodyModelConfigGranularityNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::HumeAI.ProsodyModelConfigGranularity?>
+    {
+        /// <inheritdoc />
+        public override global::HumeAI.ProsodyModelConfigGranularity? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::HumeAI.ProsodyModelConfigGranularityExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::HumeAI.ProsodyModelConfigGranularity)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::HumeAI.ProsodyModelConfigGranularity?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::HumeAI.ProsodyModelConfigGranularity? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::HumeAI.ProsodyModelConfigGranularityExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}
