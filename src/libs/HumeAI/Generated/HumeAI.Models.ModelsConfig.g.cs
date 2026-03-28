@@ -30,7 +30,7 @@ namespace HumeAI
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("burst")]
-        public object? Burst { get; set; }
+        public global::HumeAI.BurstModelConfig? Burst { get; set; }
 
         /// <summary>
         /// 
@@ -59,7 +59,7 @@ namespace HumeAI
             global::HumeAI.FaceModelConfig? face,
             global::HumeAI.ProsodyModelConfig? prosody,
             global::HumeAI.LanguageModelConfig? language,
-            object? burst,
+            global::HumeAI.BurstModelConfig? burst,
             global::HumeAI.NerModelConfig? ner)
         {
             this.Face = face;

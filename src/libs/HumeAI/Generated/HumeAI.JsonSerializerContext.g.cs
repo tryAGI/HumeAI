@@ -149,6 +149,7 @@ namespace HumeAI
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.ProsodyModelConfigGranularity), TypeInfoPropertyName = "ProsodyModelConfigGranularity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.LanguageModelConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.LanguageModelConfigGranularity), TypeInfoPropertyName = "LanguageModelConfigGranularity2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.BurstModelConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.NerModelConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.ModelsConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::HumeAI.TranscriptionConfig))]
