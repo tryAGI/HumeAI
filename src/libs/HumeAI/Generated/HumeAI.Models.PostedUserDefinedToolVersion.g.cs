@@ -42,9 +42,9 @@ namespace HumeAI
         /// <summary>
         /// Initializes a new instance of the <see cref="PostedUserDefinedToolVersion" /> class.
         /// </summary>
+        /// <param name="parameters"></param>
         /// <param name="versionDescription"></param>
         /// <param name="description"></param>
-        /// <param name="parameters"></param>
         /// <param name="fallbackContent"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace HumeAI
             string? description,
             string? fallbackContent)
         {
-            this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
             this.VersionDescription = versionDescription;
             this.Description = description;
+            this.Parameters = parameters ?? throw new global::System.ArgumentNullException(nameof(parameters));
             this.FallbackContent = fallbackContent;
         }
 

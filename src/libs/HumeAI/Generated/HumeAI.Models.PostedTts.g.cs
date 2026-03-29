@@ -42,9 +42,9 @@ namespace HumeAI
         /// <summary>
         /// Initializes a new instance of the <see cref="PostedTts" /> class.
         /// </summary>
+        /// <param name="utterances"></param>
         /// <param name="format"></param>
         /// <param name="numGenerations"></param>
-        /// <param name="utterances"></param>
         /// <param name="context"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace HumeAI
             int? numGenerations,
             global::HumeAI.PostedContext? context)
         {
-            this.Utterances = utterances ?? throw new global::System.ArgumentNullException(nameof(utterances));
             this.Format = format;
             this.NumGenerations = numGenerations;
+            this.Utterances = utterances ?? throw new global::System.ArgumentNullException(nameof(utterances));
             this.Context = context;
         }
 
