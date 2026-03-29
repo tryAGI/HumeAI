@@ -30,8 +30,8 @@ namespace HumeAI
         /// <summary>
         /// Initializes a new instance of the <see cref="PostedPromptVersion" /> class.
         /// </summary>
-        /// <param name="versionDescription"></param>
         /// <param name="text"></param>
+        /// <param name="versionDescription"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -39,8 +39,8 @@ namespace HumeAI
             string text,
             string? versionDescription)
         {
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.VersionDescription = versionDescription;
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 
         /// <summary>
