@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class BatchClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_ListBatchJobsSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_ListBatchJobsSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_ListBatchJobsSecurityRequirement0,
+            };
         partial void PrepareListBatchJobsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? limit,
@@ -63,6 +82,12 @@ namespace HumeAI
                 sortBy: ref sortBy,
                 direction: ref direction);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListBatchJobsSecurityRequirements,
+                operationName: "ListBatchJobsAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: "/v0/batch/jobs",
                 baseUri: HttpClient.BaseAddress); 
@@ -73,7 +98,7 @@ namespace HumeAI
                 .AddOptionalParameter("timestamp_ms", timestampMs?.ToString())
                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                 .AddOptionalParameter("direction", direction?.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -83,7 +108,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

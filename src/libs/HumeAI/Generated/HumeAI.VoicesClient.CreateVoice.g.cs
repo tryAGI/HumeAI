@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class VoicesClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_CreateVoiceSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_CreateVoiceSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_CreateVoiceSecurityRequirement0,
+            };
         partial void PrepareCreateVoiceArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::HumeAI.PostedVoice request);
@@ -40,9 +59,15 @@ namespace HumeAI
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateVoiceSecurityRequirements,
+                operationName: "CreateVoiceAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: "/v0/tts/voices",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -52,7 +77,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

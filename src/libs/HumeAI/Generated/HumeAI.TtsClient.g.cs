@@ -12,7 +12,7 @@ namespace HumeAI
         /// <summary>
         /// Production
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.hume.ai";
+        public const string DefaultBaseUrl = "https://api.hume.ai/";
 
         private bool _disposeHttpClient = true;
 

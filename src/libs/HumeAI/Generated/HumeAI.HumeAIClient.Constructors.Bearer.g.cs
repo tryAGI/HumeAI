@@ -6,6 +6,7 @@ namespace HumeAI
     public sealed partial class HumeAIClient
     {
         /// <inheritdoc cref="HumeAIClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::HumeAI.EndPointAuthorization}?, bool)"/>
+
         public HumeAIClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

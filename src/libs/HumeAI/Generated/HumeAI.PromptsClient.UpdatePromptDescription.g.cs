@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class PromptsClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_UpdatePromptDescriptionSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_UpdatePromptDescriptionSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_UpdatePromptDescriptionSecurityRequirement0,
+            };
         partial void PrepareUpdatePromptDescriptionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
@@ -50,9 +69,15 @@ namespace HumeAI
                 version: ref version,
                 request: request);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_UpdatePromptDescriptionSecurityRequirements,
+                operationName: "UpdatePromptDescriptionAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: $"/v0/evi/prompts/{id}/version/{version}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: new global::System.Net.Http.HttpMethod("PATCH"),
@@ -62,7 +87,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
