@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class TtsClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_SynthesizeJsonStreamingSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_SynthesizeJsonStreamingSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_SynthesizeJsonStreamingSecurityRequirement0,
+            };
         partial void PrepareSynthesizeJsonStreamingArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::HumeAI.PostedTts request);
@@ -40,9 +59,15 @@ namespace HumeAI
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_SynthesizeJsonStreamingSecurityRequirements,
+                operationName: "SynthesizeJsonStreamingAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: "/v0/tts/stream/json",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -52,7 +77,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

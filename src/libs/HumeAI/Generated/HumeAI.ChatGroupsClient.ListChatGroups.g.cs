@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class ChatGroupsClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_ListChatGroupsSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_ListChatGroupsSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_ListChatGroupsSecurityRequirement0,
+            };
         partial void PrepareListChatGroupsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageNumber,
@@ -52,6 +71,12 @@ namespace HumeAI
                 ascendingOrder: ref ascendingOrder,
                 configId: ref configId);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListChatGroupsSecurityRequirements,
+                operationName: "ListChatGroupsAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: "/v0/evi/chat_groups",
                 baseUri: HttpClient.BaseAddress); 
@@ -60,7 +85,7 @@ namespace HumeAI
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("ascending_order", ascendingOrder?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("config_id", configId) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -70,7 +95,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class VoicesClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_ListVoicesSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_ListVoicesSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_ListVoicesSecurityRequirement0,
+            };
         partial void PrepareListVoicesArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? pageNumber,
@@ -52,6 +71,12 @@ namespace HumeAI
                 provider: ref provider,
                 name: ref name);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListVoicesSecurityRequirements,
+                operationName: "ListVoicesAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: "/v0/tts/voices",
                 baseUri: HttpClient.BaseAddress); 
@@ -60,7 +85,7 @@ namespace HumeAI
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("provider", provider?.ToValueString())
                 .AddOptionalParameter("name", name) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -70,7 +95,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

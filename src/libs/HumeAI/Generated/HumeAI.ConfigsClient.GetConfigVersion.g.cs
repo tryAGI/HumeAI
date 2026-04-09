@@ -5,6 +5,25 @@ namespace HumeAI
 {
     public partial class ConfigsClient
     {
+
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_GetConfigVersionSecurityRequirement0 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::HumeAI.EndPointSecurityRequirement[] s_GetConfigVersionSecurityRequirements =
+            new global::HumeAI.EndPointSecurityRequirement[]
+            {                s_GetConfigVersionSecurityRequirement0,
+            };
         partial void PrepareGetConfigVersionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
@@ -42,9 +61,15 @@ namespace HumeAI
                 id: ref id,
                 version: ref version);
 
+
+            var __authorizations = global::HumeAI.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetConfigVersionSecurityRequirements,
+                operationName: "GetConfigVersionAsync");
+
             var __pathBuilder = new global::HumeAI.PathBuilder(
                 path: $"/v0/evi/configs/{id}/version/{version}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -54,7 +79,7 @@ namespace HumeAI
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
