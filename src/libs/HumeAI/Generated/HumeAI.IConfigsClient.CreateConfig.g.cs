@@ -8,11 +8,13 @@ namespace HumeAI
         /// Create an EVI config
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::HumeAI.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::HumeAI.ReturnConfig> CreateConfigAsync(
 
             global::HumeAI.PostedConfig request,
+            global::HumeAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create an EVI config
@@ -28,6 +30,7 @@ namespace HumeAI
         /// <param name="builtinTools"></param>
         /// <param name="eventMessages"></param>
         /// <param name="timeouts"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::HumeAI.ReturnConfig> CreateConfigAsync(
@@ -42,6 +45,7 @@ namespace HumeAI
             global::System.Collections.Generic.IList<global::HumeAI.PostedBuiltinTool>? builtinTools = default,
             global::HumeAI.PostedEventMessageSpecs? eventMessages = default,
             global::HumeAI.PostedTimeoutSpecs? timeouts = default,
+            global::HumeAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
