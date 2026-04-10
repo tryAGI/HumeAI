@@ -25,6 +25,7 @@ namespace HumeAI
             Authorizations.Add(new global::HumeAI.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "BearerAuth",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
