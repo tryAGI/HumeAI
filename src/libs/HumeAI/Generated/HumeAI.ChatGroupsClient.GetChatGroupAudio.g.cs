@@ -144,7 +144,7 @@ namespace HumeAI
                 PrepareGetChatGroupAudioRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     pageNumber: pageNumber,
                     pageSize: pageSize,
                     ascendingOrder: ascendingOrder);
