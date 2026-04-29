@@ -144,7 +144,7 @@ namespace HumeAI
                 PrepareListChatGroupEventsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     pageNumber: pageNumber,
                     pageSize: pageSize,
                     ascendingOrder: ascendingOrder);

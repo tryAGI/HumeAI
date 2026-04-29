@@ -143,8 +143,8 @@ namespace HumeAI
                 PrepareUpdatePromptDescriptionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    version: version,
+                    id: id!,
+                    version: version!,
                     request: request);
 
                 return __httpRequest;

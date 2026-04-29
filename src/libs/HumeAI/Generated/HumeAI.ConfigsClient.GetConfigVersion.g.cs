@@ -129,8 +129,8 @@ namespace HumeAI
                 PrepareGetConfigVersionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    version: version);
+                    id: id!,
+                    version: version!);
 
                 return __httpRequest;
             }
