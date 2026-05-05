@@ -43,7 +43,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public BatchClient Batch => new BatchClient(HttpClient, authorizations: Authorizations, options: Options)
+        public BatchClient Batch => new BatchClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -52,7 +52,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public ChatGroupsClient ChatGroups => new ChatGroupsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ChatGroupsClient ChatGroups => new ChatGroupsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -61,7 +61,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public ChatsClient Chats => new ChatsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ChatsClient Chats => new ChatsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -70,7 +70,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public ConfigsClient Configs => new ConfigsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ConfigsClient Configs => new ConfigsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -79,7 +79,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public EviToolsClient EviTools => new EviToolsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public EviToolsClient EviTools => new EviToolsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -88,7 +88,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public PromptsClient Prompts => new PromptsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PromptsClient Prompts => new PromptsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -97,7 +97,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public TtsClient Tts => new TtsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TtsClient Tts => new TtsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -106,7 +106,7 @@ namespace HumeAI
         /// <summary>
         /// 
         /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -145,10 +145,10 @@ namespace HumeAI
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public HumeAIClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::HumeAI.EndPointAuthorization>? authorizations = null,
-            global::HumeAI.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::HumeAI.EndPointAuthorization>? authorizations,
+            global::HumeAI.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 
