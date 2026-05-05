@@ -19,6 +19,18 @@ namespace HumeAI
         /// <summary>
         /// Create an EVI tool
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::HumeAI.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::HumeAI.AutoSDKHttpResponse<global::HumeAI.ReturnUserDefinedTool>> CreateEviToolAsResponseAsync(
+
+            global::HumeAI.PostedUserDefinedTool request,
+            global::HumeAI.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create an EVI tool
+        /// </summary>
         /// <param name="name"></param>
         /// <param name="versionDescription"></param>
         /// <param name="description"></param>

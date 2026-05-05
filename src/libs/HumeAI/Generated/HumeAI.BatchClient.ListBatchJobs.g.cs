@@ -74,6 +74,42 @@ namespace HumeAI
             global::HumeAI.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await ListBatchJobsAsResponseAsync(
+                limit: limit,
+                status: status,
+                when: when,
+                timestampMs: timestampMs,
+                sortBy: sortBy,
+                direction: direction,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// List batch jobs<br/>
+        /// List all batch inference jobs
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="status"></param>
+        /// <param name="when"></param>
+        /// <param name="timestampMs"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="direction"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::HumeAI.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::HumeAI.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>>> ListBatchJobsAsResponseAsync(
+            int? limit = default,
+            global::HumeAI.ListBatchJobsStatus? status = default,
+            long? when = default,
+            long? timestampMs = default,
+            global::HumeAI.ListBatchJobsSortBy? sortBy = default,
+            global::HumeAI.ListBatchJobsDirection? direction = default,
+            global::HumeAI.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareListBatchJobsArguments(
@@ -107,16 +143,17 @@ namespace HumeAI
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::HumeAI.PathBuilder(
                                 path: "/v0/batch/jobs",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("status", status?.ToValueString())
                                 .AddOptionalParameter("when", when?.ToString())
                                 .AddOptionalParameter("timestamp_ms", timestampMs?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
-                                .AddOptionalParameter("direction", direction?.ToValueString()) 
+                                .AddOptionalParameter("direction", direction?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::HumeAI.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -193,6 +230,8 @@ namespace HumeAI
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -203,6 +242,11 @@ namespace HumeAI
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::HumeAI.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::HumeAI.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -220,6 +264,8 @@ namespace HumeAI
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -229,8 +275,7 @@ namespace HumeAI
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::HumeAI.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -239,6 +284,11 @@ namespace HumeAI
                         __attempt < __maxAttempts &&
                         global::HumeAI.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::HumeAI.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::HumeAI.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::HumeAI.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -255,14 +305,15 @@ namespace HumeAI
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::HumeAI.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -302,6 +353,8 @@ namespace HumeAI
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -322,6 +375,8 @@ namespace HumeAI
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
 
@@ -346,9 +401,13 @@ namespace HumeAI
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        (global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>), JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::HumeAI.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::HumeAI.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -376,9 +435,13 @@ namespace HumeAI
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        (global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>), JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::HumeAI.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::HumeAI.InferenceJob>>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::HumeAI.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
