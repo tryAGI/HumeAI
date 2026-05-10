@@ -93,5 +93,6 @@ namespace HumeAI
         public FaceModelConfig()
         {
         }
+
     }
 }

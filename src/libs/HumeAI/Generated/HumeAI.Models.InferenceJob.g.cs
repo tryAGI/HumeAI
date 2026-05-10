@@ -103,5 +103,6 @@ namespace HumeAI
         public InferenceJob()
         {
         }
+
     }
 }

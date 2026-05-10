@@ -120,5 +120,6 @@ namespace HumeAI
         public PostedConfigVersion()
         {
         }
+
     }
 }

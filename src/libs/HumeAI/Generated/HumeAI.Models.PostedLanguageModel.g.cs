@@ -58,5 +58,6 @@ namespace HumeAI
         public PostedLanguageModel()
         {
         }
+
     }
 }

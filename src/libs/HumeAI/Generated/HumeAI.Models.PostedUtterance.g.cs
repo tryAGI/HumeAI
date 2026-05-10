@@ -85,5 +85,6 @@ namespace HumeAI
         public PostedUtterance()
         {
         }
+
     }
 }

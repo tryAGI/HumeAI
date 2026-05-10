@@ -99,5 +99,6 @@ namespace HumeAI
         public FacePrediction()
         {
         }
+
     }
 }

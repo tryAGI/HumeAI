@@ -84,5 +84,6 @@ namespace HumeAI
         public InferenceBaseRequest()
         {
         }
+
     }
 }

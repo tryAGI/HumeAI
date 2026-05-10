@@ -104,5 +104,6 @@ namespace HumeAI
         public ReturnChatEvent()
         {
         }
+
     }
 }

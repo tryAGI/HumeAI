@@ -50,5 +50,6 @@ namespace HumeAI
         public PostedVoice()
         {
         }
+
     }
 }

@@ -57,5 +57,6 @@ namespace HumeAI
         public PostedEventMessageSpecs()
         {
         }
+
     }
 }
