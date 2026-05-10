@@ -59,5 +59,6 @@ namespace HumeAI
         public PostedPrompt()
         {
         }
+
     }
 }
