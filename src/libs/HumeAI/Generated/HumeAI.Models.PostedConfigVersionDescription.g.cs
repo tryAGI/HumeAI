@@ -39,5 +39,6 @@ namespace HumeAI
         public PostedConfigVersionDescription()
         {
         }
+
     }
 }

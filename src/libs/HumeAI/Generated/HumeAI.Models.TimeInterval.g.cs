@@ -52,5 +52,6 @@ namespace HumeAI
         public TimeInterval()
         {
         }
+
     }
 }

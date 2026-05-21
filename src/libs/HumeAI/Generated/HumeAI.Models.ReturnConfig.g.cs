@@ -174,5 +174,6 @@ namespace HumeAI
         public ReturnConfig()
         {
         }
+
     }
 }

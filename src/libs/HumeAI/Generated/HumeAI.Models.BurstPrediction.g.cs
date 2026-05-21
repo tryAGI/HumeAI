@@ -48,5 +48,6 @@ namespace HumeAI
         public BurstPrediction()
         {
         }
+
     }
 }
