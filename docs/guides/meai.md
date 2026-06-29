@@ -3,7 +3,34 @@
 !!! tip "Cross-SDK comparison"
     See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
 
-The HumeAI SDK provides `AIFunction` tool wrappers compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai). These tools can be used with any `IChatClient` to give AI models access to Hume AI's emotion analysis, speech synthesis, and conversational AI capabilities.
+The HumeAI SDK provides a native `ITextToSpeechClient` implementation and `AIFunction` tool wrappers compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai). These integrations can be used with any MEAI-compatible application to give AI models access to Hume AI's emotion analysis, speech synthesis, and conversational AI capabilities.
+
+## Text-to-Speech Client
+
+```csharp
+using HumeAI;
+using Microsoft.Extensions.AI;
+
+using var client = new HumeAIClient(apiKey: "your-api-key");
+ITextToSpeechClient tts = client;
+
+var response = await tts.GetAudioAsync(
+    "Make this sound warm and expressive.",
+    new TextToSpeechOptions
+    {
+        ModelId = "octave-2",
+        VoiceId = "your-hume-voice-id",
+        AudioFormat = "mp3",
+        Speed = 1.05f,
+        AdditionalProperties = new()
+        {
+            [HumeAITextToSpeechPropertyNames.Description] = "Warm, expressive, and conversational",
+            [HumeAITextToSpeechPropertyNames.InstantMode] = true,
+        },
+    });
+
+var audio = response.Contents.OfType<DataContent>().Single().Data;
+```
 
 ## Available Tools
 
