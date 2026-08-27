@@ -4,24 +4,24 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ProsodyModelConfigGranularity
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ConversationalTurn,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sentence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Utterance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

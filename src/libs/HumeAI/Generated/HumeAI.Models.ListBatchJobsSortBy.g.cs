@@ -4,12 +4,12 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ListBatchJobsSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Created,
     }

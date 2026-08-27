@@ -20,7 +20,7 @@ namespace HumeAI.JsonConverters
                     {
                         return global::HumeAI.ListVoicesProviderExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

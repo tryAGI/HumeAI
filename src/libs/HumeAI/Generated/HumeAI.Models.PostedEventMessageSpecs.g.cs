@@ -4,24 +4,24 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostedEventMessageSpecs
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("on_new_chat")]
         public global::HumeAI.PostedEventMessageSpec? OnNewChat { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("on_inactivity_timeout")]
         public global::HumeAI.PostedEventMessageSpec? OnInactivityTimeout { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("on_max_duration_timeout")]
         public global::HumeAI.PostedEventMessageSpec? OnMaxDurationTimeout { get; set; }

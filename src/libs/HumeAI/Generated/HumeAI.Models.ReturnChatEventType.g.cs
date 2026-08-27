@@ -4,32 +4,32 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ReturnChatEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AgentMessage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FunctionCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FunctionCallResponse,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SystemPrompt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserInterruption,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserMessage,
     }

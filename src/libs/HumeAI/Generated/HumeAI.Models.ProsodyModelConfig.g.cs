@@ -4,19 +4,19 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProsodyModelConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("granularity")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::HumeAI.JsonConverters.ProsodyModelConfigGranularityJsonConverter))]
         public global::HumeAI.ProsodyModelConfigGranularity? Granularity { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("identify_speakers")]
         public bool? IdentifySpeakers { get; set; }

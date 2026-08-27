@@ -38,7 +38,7 @@ namespace HumeAI
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::HumeAI.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -48,7 +48,7 @@ namespace HumeAI
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BatchClient Batch => new BatchClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -57,7 +57,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatGroupsClient ChatGroups => new ChatGroupsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -66,7 +66,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatsClient Chats => new ChatsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -75,7 +75,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ConfigsClient Configs => new ConfigsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -84,7 +84,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EviToolsClient EviTools => new EviToolsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -93,7 +93,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PromptsClient Prompts => new PromptsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -102,7 +102,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TtsClient Tts => new TtsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -111,7 +111,7 @@ namespace HumeAI
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

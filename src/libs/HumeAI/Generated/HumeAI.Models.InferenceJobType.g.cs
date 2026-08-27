@@ -4,28 +4,28 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InferenceJobType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomModelsInference,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         EmbeddingGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inference,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TlInference,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Training,
     }

@@ -4,18 +4,18 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostedTimeoutSpecs
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inactivity")]
         public global::HumeAI.PostedTimeoutSpecsInactivity? Inactivity { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_duration")]
         public global::HumeAI.PostedTimeoutSpecsMaxDuration? MaxDuration { get; set; }
