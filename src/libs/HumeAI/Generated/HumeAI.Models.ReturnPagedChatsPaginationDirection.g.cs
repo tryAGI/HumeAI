@@ -4,16 +4,16 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ReturnPagedChatsPaginationDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asc,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Desc,
     }

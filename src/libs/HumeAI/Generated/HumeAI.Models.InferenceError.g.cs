@@ -4,18 +4,18 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class InferenceError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public string? File { get; set; }

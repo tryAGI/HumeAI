@@ -4,16 +4,16 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ReturnUserDefinedToolToolType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Builtin,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Function,
     }

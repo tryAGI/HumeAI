@@ -4,30 +4,30 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConvertVoiceJsonRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_audio")]
         public string? SourceAudio { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_voice_id")]
         public string? SourceVoiceId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_voice_id")]
         public string? TargetVoiceId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_voice_name")]
         public string? TargetVoiceName { get; set; }

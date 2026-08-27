@@ -4,36 +4,36 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class NerPrediction
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity")]
         public string? Entity { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("position")]
         public global::HumeAI.PositionInterval? Position { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("link")]
         public string? Link { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_confidence")]
         public double? EntityConfidence { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emotions")]
         public global::System.Collections.Generic.IList<global::HumeAI.EmotionScore>? Emotions { get; set; }

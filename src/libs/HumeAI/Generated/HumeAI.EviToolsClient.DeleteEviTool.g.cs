@@ -125,7 +125,7 @@ namespace HumeAI
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::HumeAI.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

@@ -4,28 +4,28 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ReturnChatStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaxDurationTimeout,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserEnded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UserTimeout,
     }

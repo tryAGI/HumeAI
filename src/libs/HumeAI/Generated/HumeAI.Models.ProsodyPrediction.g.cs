@@ -4,18 +4,18 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProsodyPrediction
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time")]
         public global::HumeAI.TimeInterval? Time { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emotions")]
         public global::System.Collections.Generic.IList<global::HumeAI.EmotionScore>? Emotions { get; set; }

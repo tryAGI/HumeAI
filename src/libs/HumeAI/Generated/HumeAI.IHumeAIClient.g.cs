@@ -40,48 +40,48 @@ namespace HumeAI
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BatchClient Batch { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatGroupsClient ChatGroups { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatsClient Chats { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ConfigsClient Configs { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EviToolsClient EviTools { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PromptsClient Prompts { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TtsClient Tts { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VoicesClient Voices { get; }
 

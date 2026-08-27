@@ -20,7 +20,7 @@ namespace HumeAI.JsonConverters
                     {
                         return global::HumeAI.ReturnChatEventTypeExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

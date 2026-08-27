@@ -4,12 +4,12 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LanguageModelPredictions
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("grouped_predictions")]
         public global::System.Collections.Generic.IList<global::HumeAI.GroupedLanguagePredictions>? GroupedPredictions { get; set; }

@@ -4,7 +4,7 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FacePrediction
     {
@@ -21,7 +21,7 @@ namespace HumeAI
         public double? Time { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bounding_box")]
         public global::HumeAI.BoundingBox? BoundingBox { get; set; }
@@ -33,19 +33,19 @@ namespace HumeAI
         public double? Prob { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emotions")]
         public global::System.Collections.Generic.IList<global::HumeAI.EmotionScore>? Emotions { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("facs")]
         public global::System.Collections.Generic.IList<global::HumeAI.FacsScore>? Facs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("descriptions")]
         public global::System.Collections.Generic.IList<global::HumeAI.DescriptionsScore>? Descriptions { get; set; }

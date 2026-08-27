@@ -4,16 +4,16 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostedBuiltinToolName
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HangUp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebSearch,
     }

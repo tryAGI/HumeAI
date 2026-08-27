@@ -4,20 +4,20 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LanguageModelConfigGranularity
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Passage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sentence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

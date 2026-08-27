@@ -4,7 +4,7 @@
 namespace HumeAI
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BurstModelConfig
     {
