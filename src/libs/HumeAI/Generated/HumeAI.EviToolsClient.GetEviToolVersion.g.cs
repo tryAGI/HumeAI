@@ -13,6 +13,21 @@ namespace HumeAI
                 Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
                 {                    new global::HumeAI.EndPointAuthorizationRequirement
                     {
+                        Type = "ApiKey",
+                        SchemeId = "HumeApiKey",
+                        Location = "Header",
+                        Name = "X-Hume-Api-Key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_GetEviToolVersionSecurityRequirement1 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
                         Type = "Http",
                         SchemeId = "BearerAuth",
                         Location = "Header",
@@ -24,6 +39,7 @@ namespace HumeAI
         private static readonly global::HumeAI.EndPointSecurityRequirement[] s_GetEviToolVersionSecurityRequirements =
             new global::HumeAI.EndPointSecurityRequirement[]
             {                s_GetEviToolVersionSecurityRequirement0,
+                s_GetEviToolVersionSecurityRequirement1,
             };
         partial void PrepareGetEviToolVersionArguments(
             global::System.Net.Http.HttpClient httpClient,

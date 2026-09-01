@@ -13,6 +13,21 @@ namespace HumeAI
                 Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
                 {                    new global::HumeAI.EndPointAuthorizationRequirement
                     {
+                        Type = "ApiKey",
+                        SchemeId = "HumeApiKey",
+                        Location = "Header",
+                        Name = "X-Hume-Api-Key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_SynthesizeFileStreamingSecurityRequirement1 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
                         Type = "Http",
                         SchemeId = "BearerAuth",
                         Location = "Header",
@@ -24,6 +39,7 @@ namespace HumeAI
         private static readonly global::HumeAI.EndPointSecurityRequirement[] s_SynthesizeFileStreamingSecurityRequirements =
             new global::HumeAI.EndPointSecurityRequirement[]
             {                s_SynthesizeFileStreamingSecurityRequirement0,
+                s_SynthesizeFileStreamingSecurityRequirement1,
             };
         partial void PrepareSynthesizeFileStreamingArguments(
             global::System.Net.Http.HttpClient httpClient,
@@ -749,6 +765,9 @@ namespace HumeAI
         /// <summary>
         /// Synthesize speech streaming (file)
         /// </summary>
+        /// <param name="version">
+        /// Octave model version. Use "2" to opt into Octave 2; a voice is required.
+        /// </param>
         /// <param name="format"></param>
         /// <param name="numGenerations"></param>
         /// <param name="utterances"></param>
@@ -758,6 +777,7 @@ namespace HumeAI
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<byte[]> SynthesizeFileStreamingAsync(
             global::System.Collections.Generic.IList<global::HumeAI.PostedUtterance> utterances,
+            string? version = default,
             global::HumeAI.AudioFormat? format = default,
             int? numGenerations = default,
             global::HumeAI.PostedContext? context = default,
@@ -766,6 +786,7 @@ namespace HumeAI
         {
             var __request = new global::HumeAI.PostedTts
             {
+                Version = version,
                 Format = format,
                 NumGenerations = numGenerations,
                 Utterances = utterances,

@@ -13,6 +13,21 @@ namespace HumeAI
                 Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
                 {                    new global::HumeAI.EndPointAuthorizationRequirement
                     {
+                        Type = "ApiKey",
+                        SchemeId = "HumeApiKey",
+                        Location = "Header",
+                        Name = "X-Hume-Api-Key",
+                        FriendlyName = "ApiKeyInHeader",
+                    },
+                },
+            };
+
+        private static readonly global::HumeAI.EndPointSecurityRequirement s_DeletePromptSecurityRequirement1 =
+            new global::HumeAI.EndPointSecurityRequirement
+            {
+                Authorizations = new global::HumeAI.EndPointAuthorizationRequirement[]
+                {                    new global::HumeAI.EndPointAuthorizationRequirement
+                    {
                         Type = "Http",
                         SchemeId = "BearerAuth",
                         Location = "Header",
@@ -24,6 +39,7 @@ namespace HumeAI
         private static readonly global::HumeAI.EndPointSecurityRequirement[] s_DeletePromptSecurityRequirements =
             new global::HumeAI.EndPointSecurityRequirement[]
             {                s_DeletePromptSecurityRequirement0,
+                s_DeletePromptSecurityRequirement1,
             };
         partial void PrepareDeletePromptArguments(
             global::System.Net.Http.HttpClient httpClient,

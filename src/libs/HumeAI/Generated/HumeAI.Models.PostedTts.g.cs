@@ -9,6 +9,12 @@ namespace HumeAI
     public sealed partial class PostedTts
     {
         /// <summary>
+        /// Octave model version. Use "2" to opt into Octave 2; a voice is required.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("version")]
+        public string? Version { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("format")]
@@ -43,6 +49,9 @@ namespace HumeAI
         /// Initializes a new instance of the <see cref="PostedTts" /> class.
         /// </summary>
         /// <param name="utterances"></param>
+        /// <param name="version">
+        /// Octave model version. Use "2" to opt into Octave 2; a voice is required.
+        /// </param>
         /// <param name="format"></param>
         /// <param name="numGenerations"></param>
         /// <param name="context"></param>
@@ -51,10 +60,12 @@ namespace HumeAI
 #endif
         public PostedTts(
             global::System.Collections.Generic.IList<global::HumeAI.PostedUtterance> utterances,
+            string? version,
             global::HumeAI.AudioFormat? format,
             int? numGenerations,
             global::HumeAI.PostedContext? context)
         {
+            this.Version = version;
             this.Format = format;
             this.NumGenerations = numGenerations;
             this.Utterances = utterances ?? throw new global::System.ArgumentNullException(nameof(utterances));

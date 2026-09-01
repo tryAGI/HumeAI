@@ -25,7 +25,9 @@ dotnet test src/tests/IntegrationTests/
 
 ## Auth
 
-Set `HUMEAI_API_KEY` or `HUME_API_KEY` environment variable. Uses Bearer token auth.
+Set `HUMEAI_API_KEY` or `HUME_API_KEY` for server-side `X-Hume-Api-Key` authentication.
+For delegated client-side EVI/TTS access, use `HumeAccessTokenProvider` to mint/cache a
+temporary token and `HumeAIClient.CreateWithAccessToken(...)` to authenticate with it.
 
 ## MEAI Integration
 

@@ -31,6 +31,9 @@ namespace HumeAI
         /// <summary>
         /// Synthesize speech (JSON)
         /// </summary>
+        /// <param name="version">
+        /// Octave model version. Use "2" to opt into Octave 2; a voice is required.
+        /// </param>
         /// <param name="format"></param>
         /// <param name="numGenerations"></param>
         /// <param name="utterances"></param>
@@ -40,6 +43,7 @@ namespace HumeAI
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::HumeAI.ReturnTts> SynthesizeJsonAsync(
             global::System.Collections.Generic.IList<global::HumeAI.PostedUtterance> utterances,
+            string? version = default,
             global::HumeAI.AudioFormat? format = default,
             int? numGenerations = default,
             global::HumeAI.PostedContext? context = default,

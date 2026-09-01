@@ -90,12 +90,11 @@ public partial class Tests
         capturedRequest.Format.SampleRate.Should().Be(24000);
         capturedRequest.Format.BitDepth.Should().Be(16);
         capturedRequest.NumGenerations.Should().Be(1);
-        capturedRequest.AdditionalProperties["version"].Should().Be("2");
+        capturedRequest.Version.Should().Be("2");
 
         handler.LastRequest.Should().NotBeNull();
         handler.LastRequest!.RequestUri!.AbsolutePath.Should().Be("/v0/tts/file");
-        handler.LastRequest.Headers.Authorization!.Scheme.Should().Be("Bearer");
-        handler.LastRequest.Headers.Authorization.Parameter.Should().Be("test-api-key");
+        handler.LastRequest.Headers.GetValues("X-Hume-Api-Key").Should().ContainSingle().Which.Should().Be("test-api-key");
 
         response.Contents.OfType<DataContent>().Single().Data.ToArray().Should().Equal([1, 2, 3]);
         response.ModelId.Should().Be("octave-2");
@@ -139,6 +138,26 @@ public partial class Tests
         updates.Should().Contain(static update => update.Kind == TextToSpeechResponseUpdateKind.AudioUpdating);
         updates.Should().Contain(static update => update.Kind == TextToSpeechResponseUpdateKind.AudioUpdated);
         updates.Last().Kind.Should().Be(TextToSpeechResponseUpdateKind.SessionClose);
+    }
+
+    [TestMethod]
+    public async Task TextToSpeechClient_AcceptsTemporaryAccessToken()
+    {
+        var handler = new StaticResponseHandler(HttpStatusCode.OK, [1, 2, 3], "audio/wav");
+        using var client = HumeAIClient.CreateWithAccessToken(
+            "temporary-token",
+            new HttpClient(handler)
+            {
+                BaseAddress = new Uri(HumeAIClient.DefaultBaseUrl),
+            });
+        ITextToSpeechClient ttsClient = client;
+
+        await ttsClient.GetAudioAsync("Hello with a delegated token.");
+
+        handler.LastRequest.Should().NotBeNull();
+        handler.LastRequest!.Headers.Authorization.Should().Be(
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "temporary-token"));
+        handler.LastRequest.Headers.Contains("X-Hume-Api-Key").Should().BeFalse();
     }
 
     private sealed class StaticResponseHandler(

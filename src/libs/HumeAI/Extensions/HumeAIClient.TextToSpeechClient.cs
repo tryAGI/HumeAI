@@ -147,7 +147,7 @@ public sealed partial class HumeAIClient : ITextToSpeechClient
 
         if (resolved.Version is { Length: > 0 } version)
         {
-            request.AdditionalProperties.TryAdd("version", version);
+            request.Version ??= version;
         }
 
         if (options.GetStringList(HumeAITextToSpeechPropertyNames.IncludeTimestampTypes) is { Count: > 0 } includeTimestampTypes)

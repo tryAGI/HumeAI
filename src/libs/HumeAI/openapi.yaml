@@ -13,14 +13,20 @@ servers:
     description: Production
 
 security:
+  - HumeApiKey: []
   - BearerAuth: []
 
 components:
   securitySchemes:
+    HumeApiKey:
+      type: apiKey
+      in: header
+      name: X-Hume-Api-Key
+      description: Server-side API key authentication.
     BearerAuth:
       type: http
       scheme: bearer
-      description: API key authentication using Bearer token
+      description: Temporary access-token authentication for client-side EVI and TTS requests.
 
   schemas:
     ErrorResponse:
@@ -605,6 +611,10 @@ components:
       required:
         - utterances
       properties:
+        version:
+          type: string
+          nullable: true
+          description: Octave model version. Use "2" to opt into Octave 2; a voice is required.
         format:
           $ref: '#/components/schemas/AudioFormat'
           nullable: true
